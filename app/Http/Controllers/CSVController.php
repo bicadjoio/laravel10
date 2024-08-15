@@ -351,7 +351,7 @@ class CsvController extends Controller
         'record_count' => $recordCount
         ]);
 
-        return back()->with('success', 'CSV validado e salvo com sucesso!');
+        return back()->with('success', 'CSV validado e enviado com sucesso!');
     }
 
     private function validateCpf($cpf)

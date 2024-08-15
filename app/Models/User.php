@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'i_cod_cnes_fonte',
         'i_nome_estab_fonte',
+        'is_admin',
     ];
 
     /**

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +27,7 @@
                     <h2>Envio de Arquivo CSV</h2>
                     <h3>Escolha um arquivo CSV para enviar</h3>
                 </hgroup>
+                
                 @if ($errors->any())
                     <div>
                         <strong>Erros:</strong>
@@ -38,22 +39,24 @@
                     </div>
                 @endif
 
-                @if (session('success'))
-                    <div>
-                        {{ session('success') }}
-                    </div>
-                @endif
-
                 <form action="{{ route('upload.csv') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="csv_file" required>
                     <button type="submit">Upload</button>
                 </form>
+
+                @if (session('success'))
+                    </p>
+                    <div>
+                        <strong> {{ session('success') }} </strong>
+                    </div>
+                @endif
+
             </section>
         </div>
     </main>
 
-    <section aria-label="Arquivos CSV carregados">
+    {{-- <section aria-label="Arquivos CSV carregados">
         <div class="container">
             <article>
                 <hgroup>
@@ -65,7 +68,7 @@
 				</ul>
             </article>
         </div>
-    </section>
+    </section> --}}
 
     <footer class="container">
         <small><a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a></small>
