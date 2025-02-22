@@ -73,4 +73,9 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
+    'paths' => [
+        'uploads' => env('STORAGE_UPLOAD_PATH', 'registro_cancer_csv'),
+    ],
+
+
 ];

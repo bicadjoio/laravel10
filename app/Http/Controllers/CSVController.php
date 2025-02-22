@@ -333,14 +333,10 @@ class CsvController extends Controller
             return back()->withErrors(['errors' => $errors]);
         }
 
-        if (!Storage::exists('registro_cancer_csv')) {
-            Storage::makeDirectory('registro_cancer_csv');
-        }
-
         // Salvar o arquivo
         $user = Auth::user();
         $filename = $user->i_cod_cnes_fonte . '_' . now()->format('Ymd_His') . '.csv';
-        $file->storeAs('registro_cancer_csv', $filename);
+        $file->storeAs(config('filesystems.paths.uploads'), $filename);
 
         // Criando o histórico de upload
         UploadHistory::create([
@@ -351,7 +347,7 @@ class CsvController extends Controller
         'record_count' => $recordCount
         ]);
 
-        return back()->with('success', 'CSV validado e salvo com sucesso!');
+        return back()->with('success', 'CSV validado e enviado com sucesso!');
     }
 
     private function validateCpf($cpf)

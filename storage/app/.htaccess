@@ -1,0 +1,30 @@
+    # Proteger diretórios sensíveis do Laravel
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^(.*)$ index.php/$1 [L]
+    </IfModule>
+
+    # Bloquear acesso direto a arquivos sensíveis
+    <FilesMatch "(\.env|\.log|\.sql|\.ini|\.htaccess|\.htpasswd)">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
+
+    # Proteger uploads contra execução de scripts
+    <FilesMatch "\.(php|php5|phtml)$">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
+
+    # Habilitar cache para performance
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresDefault "access plus 1 month"
+    </IfModule>
+
+    # Bloquear acesso direto
+    <FilesMatch "\.(csv|txt|xlsx)$">
+        Require all denied
+    </FilesMatch>
