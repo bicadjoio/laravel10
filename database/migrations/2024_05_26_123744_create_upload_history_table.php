@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('file_name');
             $table->integer('record_count');
+            $table->boolean('in_conferido');
             $table->timestamps();
         });
     }

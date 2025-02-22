@@ -13,7 +13,7 @@
         </ul>
         <ul>
             <li><a href="{{ route('dashboard') }}" role="button">Home</a></li>
-            <li><a href="{{ route('upload_history') }}" target="_blank" role="button">Ver Histórico de Envios</a></li>
+            <li><a href="{{ route('upload_history') }}" role="button">Ver Histórico de Envios</a></li>
             <li><a href="https://www.ibge.gov.br/explica/codigos-dos-municipios.php#DF" target="_blank" role="button">Codigos IBGE</a></li>
             <li><a href="https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp" target="_blank" role="button">CNES Fonte</a></li>
             <li><a href="{{ asset('documentos/modelo_migracao.xlsx') }}" target="_blank" role="button">Baixar Dicionário de Dados</a></li>
